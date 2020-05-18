@@ -1,6 +1,7 @@
 {
   "imports": {
     "http/": "https://deno.land/std@0.51.0/http/",
-    "http2/": "https://deno.land/std@0.50.0/http/"
+    "http2/": "https://deno.land/std@0.50.0/http/",
+    "soxa/": "https://deno.land/x/soxa@v0.4/"
   }
 }
