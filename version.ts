@@ -1,6 +1,6 @@
 // We handle the methods to look for the latest versions
 import { dependencyType } from "./types/dependencyType.ts";
-import { soxa } from 'https://deno.land/x/soxa/mod.ts'
+import { soxa } from 'soxa/mod.ts'
 
 export async function addLatestVersions(dependencies: dependencyType[]): Promise<dependencyType[]> {
   let result;
