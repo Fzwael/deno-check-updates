@@ -3,6 +3,10 @@
     "http/": "https://deno.land/std@0.51.0/http/",
     "http2/": "https://deno.land/std@0.50.0/http/",
     "soxa/": "https://deno.land/x/soxa@v1.0/",
-    "soxa2/": "https://deno.land/x/soxa@v0.4/"
+    "soxa2/": "https://deno.land/x/soxa@v0.4/",
+    "deno-chunked/": "https://deno.land/x/deno-chunked/",
+    "checksum": "https://deno.land/x/checksum@1.2.0",
+    "curve": "https://deno.land/x/curve25519@v0.2.0",
+    "moment/": "https://deno.land/x/moment/"
   }
 }

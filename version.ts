@@ -15,12 +15,17 @@ export async function addLatestVersions(dependencies: dependencyType[]): Promise
         .catch((error) => {
           console.error('Error getting the latest dependency ', error);
         });
-      dependency.latest = versionResult.data.tag_name;
-      dependency.upToDate = versionResult.data.tag_name === dependency.version;
+      if (versionResult) {
+        dependency.latest = versionResult.data.tag_name;
+        dependency.upToDate = versionResult.data.tag_name === dependency.version;
+      } else {
+        dependency.latest = "not found";
+      }
+
       return dependency;
 
     } else {
-      console.error('This type is not supported yet, please report this with dependency name = ', dependency.module);
+      console.error('This module is not supported yet, please report this with dependency name = ', dependency.module);
       return dependency;
     }
   }));
