@@ -10,8 +10,8 @@ export async function addLatestVersions(dependencies: dependencyType[]): Promise
     });
   const database = databaseResult.data;
   result = await Promise.all(dependencies.map(async (dependency) => {
-    if (database[dependency.name]?.type === 'github') {
-      const versionResult = await soxa.get(`https://api.github.com/repos/${database[dependency.name].owner}/${database[dependency.name].repo}/releases/latest`)
+    if (database[dependency.module]?.type === 'github') {
+      const versionResult = await soxa.get(`https://api.github.com/repos/${database[dependency.module].owner}/${database[dependency.module].repo}/releases/latest`)
         .catch((error) => {
           console.error('Error getting the latest dependency ', error);
         });
@@ -20,7 +20,7 @@ export async function addLatestVersions(dependencies: dependencyType[]): Promise
       return dependency;
 
     } else {
-      console.error('This type is not supported yet, please report this with dependency name = ', dependency.name);
+      console.error('This type is not supported yet, please report this with dependency name = ', dependency.module);
       return dependency;
     }
   }));
