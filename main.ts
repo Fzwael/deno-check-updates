@@ -1,18 +1,21 @@
 import { HELP_COMMANDS, FILE_COMMANDS } from './constants/commands.ts';
 import { help } from './help.ts';
-import { readFile } from './file.ts';
+import { readDependencies } from './file.ts';
+import { addLatestVersions } from './version.ts'
 
 async function main(args: string[]) {
-  console.debug("Welcome to Deno Check Updates!");
   if (args.length > 0) {
-    console.debug("The arguments are : ", args);
     const mainArgument = args[0];
     if (HELP_COMMANDS.includes(mainArgument)) {
       help();
     } else if (FILE_COMMANDS.includes(mainArgument)) {
       if (args[1]) {
-        console.debug("Trying to read the file : ", args[1]);
-        readFile(args[1]);
+        let dependencies = await readDependencies(args[1]);
+        if (dependencies) {
+          dependencies = await addLatestVersions(dependencies);
+        }
+        console.log('***** List of dependencies *****');
+        console.table(dependencies);
       }
     }
   } else {

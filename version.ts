@@ -1,6 +1,6 @@
 // We handle the methods to look for the latest versions
 import { dependencyType } from "./types/dependencyType.ts";
-import { soxa } from 'soxa/mod.ts'
+import { soxa } from 'https://deno.land/x/soxa/mod.ts'
 
 export async function addLatestVersions(dependencies: dependencyType[]): Promise<dependencyType[]> {
   let result;
@@ -10,13 +10,11 @@ export async function addLatestVersions(dependencies: dependencyType[]): Promise
     });
   const database = databaseResult.data;
   result = await Promise.all(dependencies.map(async (dependency) => {
-    console.log('Dependency infos ', dependency.name);
     if (database[dependency.name]?.type === 'github') {
       const versionResult = await soxa.get(`https://api.github.com/repos/${database[dependency.name].owner}/${database[dependency.name].repo}/releases/latest`)
         .catch((error) => {
           console.error('Error getting the latest dependency ', error);
         });
-      console.log('Got latest for ', dependency.name, '= ', versionResult.data.tag_name);
       dependency.latest = versionResult.data.tag_name;
       dependency.upToDate = versionResult.data.tag_name === dependency.version;
       return dependency;
@@ -26,6 +24,5 @@ export async function addLatestVersions(dependencies: dependencyType[]): Promise
       return dependency;
     }
   }));
-  console.log('FINAL ', result);
   return result;
 }

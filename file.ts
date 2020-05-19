@@ -3,16 +3,13 @@ import { importsType } from "./types/importType.ts";
 import { dependencyType } from "./types/dependencyType.ts";
 import { addLatestVersions } from './version.ts'
 
-export async function readFile(filename: string) {
-  console.debug("Trying to read file ", filename);
+export async function readDependencies(filename: string) : Promise<dependencyType[]> {
   try {
-    const fileContent = readJsonSync(filename) as importsType;
-    console.log("Content ", fileContent);
-    console.log("Content imports", fileContent.imports);
-    console.log("Result is ", extractDependencyAndVersion(fileContent.imports));
-    addLatestVersions(extractDependencyAndVersion(fileContent.imports));
+    const fileContent = await readJsonSync(filename) as importsType;
+    return extractDependencyAndVersion(fileContent.imports);
   } catch (err) {
-    console.error("Cant read file !");
+    console.error("Cant read imports file !");
+    return [];
   }
 }
 
