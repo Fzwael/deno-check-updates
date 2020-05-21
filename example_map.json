@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "soxa/": "https://deno.land/x/soxa@v1.0/",
+    "soxa2/": "https://deno.land/x/soxa@v0.4/",
+    "checksum": "https://deno.land/x/checksum@1.2.0",
+    "http": "https://deno.land/std@0.51.0/http/"
+  }
+}

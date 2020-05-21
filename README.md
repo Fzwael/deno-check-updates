@@ -6,7 +6,7 @@ deno run -A https://deno.land/x/deno_check_updates/main.ts -h
 
 ## Check updates
 ```shell
-$ deno run -A --unstable https://deno.land/x/deno_check_updates/main.ts -f import_map.json
+$ deno run -A --unstable https://deno.land/x/deno_check_updates/main.ts -f example_map.json
 ```
 
 ## Example output
@@ -18,6 +18,7 @@ For this input file :
     "soxa/": "https://deno.land/x/soxa@v1.0/",
     "soxa2/": "https://deno.land/x/soxa@v0.4/",
     "checksum": "https://deno.land/x/checksum@1.2.0",
+    "http": "https://deno.land/std@0.51.0/http/"
   }
 }
 ```
