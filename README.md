@@ -5,7 +5,9 @@ Automatically checks deno dependencies versions
 deno run -A https://deno.land/x/deno_check_updates/main.ts -h
 
 ## Check updates
-``deno run -A --unstable https://deno.land/x/deno_check_updates/main.ts -f import_map.json``
+```shell
+$ deno run -A --unstable https://deno.land/x/deno_check_updates/main.ts -f import_map.json
+```
 
 ## Example output
 For this input file :
@@ -20,12 +22,12 @@ For this input file :
 }
 ```
 
-| name | module  | url  | version | latest |
-| :---:| :-----: | :--: | :-----: | :----: |
-| soxa  | soxa | "https://deno.land/x/soxa@v1.0/" |  "v1.0" | "v1.0"
-| soxa2 | soxa | "https://deno.land/x/soxa@v1.0/" |  "v1.0" | "v1.0"
-| checksum | checksum | "https://deno.land/x/checksum@1.2.0" |  "v1.2.0" | "v1.4.0"
-| http | std | "https://deno.land/std@0.51.0/http/" |  "v0.51.0" | "v0.52.0"
+| name | module  | url  | version | latest | upToDate
+| :---:| :-----: | :--: | :-----: | :----: | :----: |
+| soxa  | soxa | "https://deno.land/x/soxa@v1.0/" |  "v1.0" | "v1.0" | true
+| soxa2 | soxa | "https://deno.land/x/soxa@v1.0/" |  "v1.0" | "v1.0" | true
+| checksum | checksum | "https://deno.land/x/checksum@1.2.0" |  "v1.2.0" | "v1.4.0" | false
+| http | std | "https://deno.land/std@0.51.0/http/" |  "v0.51.0" | "v0.52.0" | false
 
 ### Notes:
 For now this is not a stable feature : https://deno.land/manual/linking_to_external_code/import_maps
