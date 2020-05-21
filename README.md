@@ -25,6 +25,7 @@ For this input file :
 | soxa  | soxa | "https://deno.land/x/soxa@v1.0/" |  "v1.0" | "v1.0"
 | soxa2 | soxa | "https://deno.land/x/soxa@v1.0/" |  "v1.0" | "v1.0"
 | checksum | checksum | "https://deno.land/x/checksum@1.2.0" |  "v1.2.0" | "v1.4.0"
+| http | std | "https://deno.land/std@0.51.0/http/" |  "v0.51.0" | "v0.52.0"
 
 ### Notes:
 For now this is not a stable feature : https://deno.land/manual/linking_to_external_code/import_maps
