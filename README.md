@@ -2,10 +2,10 @@
 Automatically checks deno dependencies versions
 
 ## Help
-deno run -A main.ts -h
+deno run -A https://deno.land/x/deno_check_updates/main.ts -h
 
 ## Check updates
-``deno run -A --importmap=import_map.json --unstable main.ts -f import_map.json``
+``deno run -A --unstable https://deno.land/x/deno_check_updates/main.ts -f import_map.json``
 
 ## Example output
 For this input file :
