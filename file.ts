@@ -1,7 +1,6 @@
 import { readJsonSync } from "https://deno.land/std/fs/read_json.ts";
 import { importsType } from "./types/importType.ts";
 import { dependencyType } from "./types/dependencyType.ts";
-import { addLatestVersions } from './version.ts'
 
 export async function readDependencies(filename: string): Promise<dependencyType[]> {
   try {
