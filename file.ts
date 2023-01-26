@@ -1,10 +1,9 @@
-import { readJsonSync } from "https://deno.land/std/fs/read_json.ts";
 import { importsType } from "./types/importType.ts";
 import { dependencyType } from "./types/dependencyType.ts";
 
 export async function readDependencies(filename: string): Promise<dependencyType[]> {
   try {
-    const fileContent = await readJsonSync(filename) as importsType;
+    const fileContent = JSON.parse(await Deno.readTextFile(filename)) as importsType;
     return extractDependencyAndVersion(fileContent.imports);
   } catch (err) {
     console.error("Cant read imports file !");
